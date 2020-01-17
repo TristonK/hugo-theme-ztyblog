@@ -7,7 +7,7 @@
             <div class="card border-0 shadow-none">
                 <div class="card-body">
                     <h2 id="current">
-                        当前追/补番
+                        阅读中
                         <a href="#current" class="anchor" aria-hidden="true">
                             <i class="iconfont icon-link"></i>
                         </a>
@@ -15,7 +15,7 @@
                     <table>
                         <tr class="bg-soft-dark">
                             <td width="10%" class="d-none d-md-table-cell">编号</td>
-                            <td width="40%">番组名</td>
+                            <td width="40%">书名</td>
                             <td width="50%">评价</td>
                         </tr>
                         {{ $id := 1 }}
@@ -25,7 +25,7 @@
                         <tr class="bg-soft-primary">
                             <td class="d-none d-md-table-cell">{{ $id }}</td>
                             {{ $id = add $id 1 }}
-                            <td>{{ .name }}</td>
+                            <td><text="《 ">{{ .name }} <text=" 》"> </td>
                             <td>{{ .comment }}</td>
                         </tr>
                         {{ end }}
@@ -47,7 +47,7 @@
                     <table>
                         <tr class="bg-soft-dark">
                             <td width="10%" class="d-none d-md-table-cell">编号</td>
-                            <td width="35%">番组名</td>
+                            <td width="35%">书名</td>
                             <td width="10%">状态</td>
                             <td width="25%">评价</td>
                         </tr>
