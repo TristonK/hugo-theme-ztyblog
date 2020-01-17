@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ partial "single-header.html" . }}
+<li><i class="fas fa-tag"></i> <a href="{{ "tags/" | relURL }}{{ . | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{ end }}">{{ . }}</a></li>
 <div id="content" class="my-3">
   <div class="container">
     <div class="row row-grid justify-content-center">
