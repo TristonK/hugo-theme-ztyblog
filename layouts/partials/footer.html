@@ -8,28 +8,25 @@
                         {{ .Site.Params.Copyright -}}
                     </div>
                 </div>
-                <div class="col-md-8 d-print-none">
+                <div class="col-md-8">
                     <ul class="nav align-items-center justify-content-center justify-content-md-end">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blog/index.xml" target="_blank">
-                                <i class="iconfont icon-rss"></i>
-                                Atom Feed
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://github.com/zhengzangw/hugo-theme-ztyblog" target="_blank">
                                 <i class="iconfont icon-theme"></i>
                                 theme-ztyblog
                             </a>
                         </li>
-                        {{ if .Site.Params.gitinfo }}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/index.xml" target="_blank">
+                                <i class="iconfont icon-rss"></i>
+                                Atom Feed
+                            </a>
+                        </li>
                         <li class="nav-item" data-toggle="tooltip" data-html="true" title data-original-title="<div class='text-left'>
-                        {{ if .Site.Params.themecommitinfo }}
                             Theme Commit {{ substr .Site.Params.Themecommithash 0 8 }}
                             <br />
                             {{ .Site.Params.Themecommitcomment }}
                         <hr class='my-2 tiptool-hr'/>
-                        {{ end }}
                             Hugo Static Site Generator {{ hugo.Version }}
                             <br/>
                             Commit {{ substr .Site.Params.Binarycommithash 0 8 }} 
@@ -38,28 +35,25 @@
                             <br/>
                             {{ .Site.Params.Binarycommitdate }}
                         </div>">
-                            <a class="nav-link" href="https://github.com/zhengzangw/hugo-site/" target="_blank">
+                            <a class="nav-link" href="https://github.com/shelah-kuang/tristonk/" target="_blank">
                                 <i class="iconfont icon-git-commit-line"></i>
-                                {{ substr .Site.Params.binarycommithash 0 8 }}
+                                {{ substr .Site.Params.Contentcommithash 0 8 }}
                             </a>
                         </li>
-                        {{ end }}
-                        <ul class="nav align-items-center justify-content-center justify-content-md-end">
-                            <li class="nav-item">
-                                <a class="nav-link" href="http://beian.miit.gov.cn" target="_blank">
-                                    <i class="iconfont icon-ICPbeianfuwu"></i>
-                                    {{ .Site.Params.icp }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="http://beian.miit.gov.cn" target="_blank">
-                                    <i class="iconfont icon-beian"></i>
-                                    {{ .Site.Params.security }}
-                                </a>
-                            </li>
-                        </ul>
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+                                <i class="iconfont icon-creative-commons"></i>
+                                {{ .Site.Copyright -}}
+                            </a>
+                        </li>
+                        -->
                     </ul>
                 </div>
+				 <a href="http://beian.miit.gov.cn">苏ICP备19065212号-1</a>
+                                               <div style="width:300px;margin:0 auto; padding:20px 0;">
+                                                     <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011302320831" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/images/gongan.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">苏公网安备 32011302320831号</p></a>
+                                               </div>
             </div>
         </div>
 </footer>
