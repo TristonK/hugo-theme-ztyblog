@@ -1,8 +1,13 @@
-@import "helpers/functions";
-@import "helpers/minxins";
-@import "helpers/variables";
-@import "base/normalize";
-@import "base/animate";
+@import "vendors-extensions/normalize";
+@import "vendors-extensions/materia/variables";
+@import "vendors-extensions/bootstrap/scss/bootstrap";
+@import "vendors-extensions/materia/bootswatch";
+@import "vendors-extensions/animate";
+
+@import "themes/color";
+@import "themes/theme";
+@import "themes/font";
+
 @import "components/jumbotron";
 @import "components/navigation";
 @import "components/buttons";
@@ -13,9 +18,4 @@
 @import "pages/home";
 @import "pages/markdown";
 @import "pages/search";
-@import "themes/color";
-@import "themes/global";
-@import "vendors-extensions/bootstrap";
-@import "vendors-extensions/fonticon";
-@import "vendors-extensions/katex";
-@import "vendors-extensions/print";
+@import "pages/print";

@@ -1,4 +1,18 @@
-.bg-gradient-success {
+// Colors
+$theme: #018574;
+$text: #c6cddb;
+$light-grey: #494f5c;
+$dark-grey: #3B3E48;
+$highlight-grey: #7d828a;
+$midnightblue: rgba(44, 62, 80, 0.85);
+$teal: rgba(0, 134, 123, 0.85);
+$white: rgba(255, 255, 255, 0.85);
+
+.bg-site {
+    background-color: #eff2f7;
+}
+
+.bg-gradient-green {
     background: linear-gradient(50deg, #2dca8c 0, #2dcabb 100%) !important;
 }
 
@@ -10,14 +24,13 @@
     background: linear-gradient(50deg, #ff5c75 0, #ff745c 100%) !important;
 }
 
-.bg-gradient-secondary {
+.bg-gradient-white {
     background: linear-gradient(50deg, #eff2f7 0, #eff0f7 100%) !important;
 }
 
 .blend-mode--multiply {
     mix-blend-mode: multiply;
 }
-
 
 .bg-soft-primary {
     background-color: #e2edff
@@ -84,3 +97,21 @@
 .bg-light {
     background-color: #eff2f7 !important;
 }
+
+@mixin dimmed {
+    opacity: .6;
+}
+
+@mixin dark-overlay {
+    &:after {
+      content: "";
+      width: 100%;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }

@@ -7,8 +7,8 @@ licenselink = "https://github.com/zhengzangw/hugo-theme-ztyblog/blob/master/LICE
 description = ""
 homepage = "https://github.com/zhengzangw/hugo-theme-ztyblog"
 tags = ["blog"]
-features = []
-min_version = "0.41"
+features = ["blog"]
+min_version = "0.60"
 
 author = [
   { name = "Zangwei Zheng", homepage="https://github.com/zhengzangw/" },

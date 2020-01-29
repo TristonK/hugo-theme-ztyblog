@@ -2,12 +2,15 @@
 {{ partial "single-header.html" . }}
 <div id="content" class="my-3">
   <div class="container">
+    {{ with .Params.banner }}
+      <img src="{{ . | safeURL }}"/>
+    {{ end }}
     <div class="row row-grid justify-content-center">
       {{ if .TableOfContents }}
       <div class="col col-12 col-lg-4 d-print-none">
-        <div id="toc" class="card w-100">
-          <h4 class="card-header">目录</h4>
+        <div id="toc" class="card w-100 shadow-none">
           <div class="card-body">
+            <h4 class="card-title pb-0">目录</h4>
             {{ .TableOfContents }}
           </div>
         </div>
@@ -16,9 +19,25 @@
       <div class="col col-12 col-lg-8">
         <div class="card border-0 shadow-none">
           <div class="card-body">
-            {{ .Content | replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" `${1}<a href="#${2}" class="anchor" aria-hidden="true"><i class="iconfont icon-link"></i></a>${3}` | safeHTML }}
+            {{ $content := "" }}
+            {{ $mathmode := .Site.Params.mathmode }}
+            {{ with .Params.mathmode }}
+              {{ $mathmode = . }}
+            {{ end }}
+            {{ if $mathmode }}
+              {{ $content = .RawContent | replaceRE "_" "\\_" | markdownify }}
+            {{ else }}
+              {{ $content = .Content }}
+            {{ end }}
+            {{ if .Site.Params.linkicon }}
+              {{ $content = replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" `${1}<a href="#${2}" class="anchor" aria-hidden="true"><i class="iconfont icon-link"></i></a>${3}` $content  }}
+            {{ end }}
+            {{ if .Site.Params.tablecenter }}
+              {{ $content = replaceRE "align=\"center\"" "class=\"text-center\"" $content }}
+            {{ end }}
+            {{ safeHTML $content }}
           </div>
-          <div class="card-footer">
+          <div class="card-footer d-print-none">
             <div class="post-nav">
               {{ with .PrevInSection }}
               <a class="next-post" href="{{ .Permalink }}">
@@ -35,6 +54,27 @@
         </div>
       </div>
     </div>
-  </div>
+    {{ if .Site.Params.comments }}
+    <div id="disqus_thread"></div>
+      <script>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = "https://"+{{ .Site.Params.disqusname }}+".disqus.com/embed.js";
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>                  
+    </div>
+    {{ end }}
 </div>
 {{ end }}

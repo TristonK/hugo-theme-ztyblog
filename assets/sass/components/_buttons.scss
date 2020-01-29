@@ -4,10 +4,12 @@
     padding: .75rem 1.75rem;
     position: relative;
     transition: all .2s ease;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .btn:hover {
-    color: #8492a6;
+    color: $highlight-grey;
 }
 
 .btn-outline-secondary {
@@ -18,8 +20,14 @@
 
 .btn-outline-secondary:hover {
     color: #273444;
-    border-color: #eff2f7;
-    background-color: #eff2f7
+    border-color: #c5cfe2;
+    background-color: #cdd6e6
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active, .show>.btn-outline-secondary.dropdown-toggle {
+    color: #273444;
+    border-color: #cdd6e6;
+    background-color: #cdd6e6
 }
 
 .btn-sm {
@@ -198,4 +206,9 @@
 .btn-dark:not(:disabled):not(.disabled):active:focus,
 .show>.btn-dark.dropdown-toggle:focus {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 0 0 rgba(39, 52, 68, .35)
+}
+
+.btn-info:hover, .btn-info:active:hover {
+    color: #fff;
+    background-color: #862197;
 }
